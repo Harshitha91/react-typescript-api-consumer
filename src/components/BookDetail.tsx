@@ -7,48 +7,53 @@ const BookDetail: React.FC = () => {
   const book = location.state as IBookData;
 
   return (
-    <div className="detail-page">
-      <div className="col l6 padding-large">
-        <h1 className="center">{book?.title}</h1>
-
-        <h4 id="authors">Authors</h4>
-        {book?.authors.length > 0 &&
-          book?.authors.map(author => {
-            return <p className="text-grey">{author.name}</p>;
-          })}
-
-        <h4 id="download_count">Download Count</h4>
-        <p className="text-grey">{book?.download_count}</p>
-
-        <h4 id="bookshelves">Bookshelves</h4>
-        <p>
-          {book?.bookshelves.length > 0 &&
-            book.bookshelves.map(bookshelve => {
-              return (
-                <>
-                  <span className="tag light-grey small margin-bottom">
-                    {bookshelve}
-                  </span>{' '}
-                </>
-              );
+    <div className="">
+      <h1 className="book-title">{book?.title}</h1>
+      <div className="detail-page">
+      <div className="detail-section left">
+          <img
+            src={book?.formats['image/jpeg']}
+            className=""
+            alt="Menu"
+          />
+        </div>
+        <div className="detail-section right">
+          <div className="item">
+          <h3 id="authors">Authors</h3>
+          {book?.authors.length > 0 &&
+            book?.authors.map(author => {
+              return <p>{author.name}</p>;
             })}
-        </p>
-        <br />
+          </div>
+          <div className="item">
+          <h3 id="download_count">Download Count</h3>
+          <p>{book?.download_count}</p>
+          </div>
+          <div className="item">
+          <h3 id="bookshelves">Bookshelves</h3>
+          <p>
+            {book?.bookshelves.length > 0 &&
+              book.bookshelves.map(bookshelve => {
+                return (
+                  <>
+                    <span className="tag">
+                      {bookshelve}
+                    </span>
+                  </>
+                );
+              })}
+          </p>
+          </div>
+          <div className="item">
+          <h3 id="subjects">Subjects</h3>
+          {book?.subjects.length > 0 &&
+            book.subjects.map(subject => {
+              return <p>{subject}</p>;
+            })}
+            </div>
+        </div>
 
-        <h4 id="subjects">Subjects</h4>
-        {book?.subjects.length > 0 &&
-          book.subjects.map(subject => {
-            return <p className="text-grey">{subject}</p>;
-          })}
-        <br />
-      </div>
-
-      <div className="col l6 padding-large">
-        <img
-          src={book?.formats['image/jpeg']}
-          className="round image opacity-min"
-          alt="Menu"
-        />
+        
       </div>
     </div>
   );
