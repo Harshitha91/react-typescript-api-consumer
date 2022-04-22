@@ -64,7 +64,7 @@ const BookList: React.FC = () => {
                 <tr>
                   <th>Book Title</th>
                   <th>Author Name</th>
-                  {/* <th>Download Count</th> */}
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -72,7 +72,6 @@ const BookList: React.FC = () => {
                   <tr key={index}>
                     <td>{book.title}</td>
                     <td>{book.authors[0].name}</td>
-                    {/* <td>{book.download_count}</td> */}
                     <td>
                       <a href="" onClick={() => onSelectBook(book, index)}>
                         View Details
